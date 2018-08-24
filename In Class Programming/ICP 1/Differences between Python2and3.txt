@@ -1,0 +1,13 @@
+Differences between Python 2 and 3
+
+Python 2 the print command is a statement rather than a function.
+Python 3 print function requires parentheses around the string to be printed.
+
+Python 2 assumes all numbers entered without a decimal point are intended to be Integers.  If the user wants to have decimals in the results of a math evaluation (such as division) they need to include the decimal.
+Python 3 can automatically type the result as a double.  If the result of two integers being divided is a decimal Python 3 will automatically convert the answer.
+
+Python 3 patches a bug in the original Python code.  In earlier versions of Python, reusing the name of a global variable in list iteration can lead to reassigning the global variable.  
+
+Python 3 removes the Python 2 requirement to mark Unicode strings with a u.  All strings are stored as Unicode strings in Python 3 by default.
+
+The syntax for exception raising changed between Python 2 and 3.

@@ -48,9 +48,9 @@ autoencoder.fit(x_train, x_train,
 # encode and decode some digits
 # note that we take them from the *test* set
 encoded_imgs = encoder.predict(x_test)
-plt.plot(encoded_imgs)
+plt.plot(x_test)
 decoded_imgs = decoder.predict(encoded_imgs)
-plt.plot(decoded_imgs)
+plt.plot(x_test)
 
 model_json = autoencoder.to_json()
 with open("model.json", "w") as json_file:

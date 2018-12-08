@@ -2,7 +2,7 @@ from keras.layers import Input, Dense
 from keras.models import Model
 from keras.callbacks import TensorBoard
 from time import time
-
+from keras import regulizer
 # this is the size of our encoded representations
 encoding_dim = 32  # 32 floats -> compression of factor 24.5, assuming the input is 784 floats
 
@@ -10,7 +10,9 @@ encoding_dim = 32  # 32 floats -> compression of factor 24.5, assuming the input
 input_img = Input(shape=(784,))
 # "encoded" is the encoded representation of the input
 encoded = Dense(encoding_dim, activation='relu')(input_img)
+hiddenEncoded = Dense(encoding_dim, activation='relu', activity_regularizer=regularizers.l1(0.01))(encoded)
 # "decoded" is the lossy reconstruction of the input
+hiddenEncoded = Dense(784, activation='sigmoid')(hiddenEncoded)
 decoded = Dense(784, activation='sigmoid')(encoded)
 
 # this model maps an input to its reconstruction
